@@ -1,0 +1,29 @@
+name: Spin for X Minutes
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  spin-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository (optional, needed if using code from repo)
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Print start message
+      - name: Start spinning
+        run: echo "Starting 3-minute spin..."
+
+      # Sleep for 3 minutes (180 seconds)
+      - name: Spin for 3 minutes
+        run: sleep 180
+
+      # Print finish message
+      - name: Done spinning
+        run: echo "Finished 3-minute spin."
